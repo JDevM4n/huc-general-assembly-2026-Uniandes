@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 type SessionType =
@@ -38,7 +38,6 @@ type Session = {
   location?: string;
   locationUrl?: string;
   type?: SessionType;
-
   subActivities?: SubActivity[];
   detailGroups?: DetailGroup[];
   links?: ActionLink[];
@@ -52,6 +51,8 @@ type Day = {
   sessions: Session[];
 };
 
+type ModalType = "recommendations" | "attendees" | null;
+
 const googleMapsUrl = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     query
@@ -60,11 +61,15 @@ const googleMapsUrl = (query: string) =>
 const pickUpPoints: DetailItem[] = [
   {
     text: "Hotel BH La Quinta — Cra. 5 #74-52",
-    href: googleMapsUrl("Hotel BH La Quinta, Cra. 5 #74-52, Bogotá"),
+    href: googleMapsUrl(
+      "Hotel BH La Quinta, Cra. 5 #74-52, Bogotá"
+    ),
   },
   {
     text: "Hotel JW Marriott — Cl. 73 #8-60",
-    href: googleMapsUrl("JW Marriott Bogotá, Cl. 73 #8-60, Bogotá"),
+    href: googleMapsUrl(
+      "JW Marriott Bogotá, Cl. 73 #8-60, Bogotá"
+    ),
   },
   {
     text: "Hotel Mercure BH El Retiro — Av. Cl. 80 #10-10",
@@ -86,7 +91,6 @@ const days: Day[] = [
     short: "SUN 30",
     date: "Sunday, August 30",
     title: "Welcome to Colombia",
-
     sessions: [
       {
         time: "17:30 – 18:00",
@@ -95,7 +99,6 @@ const days: Day[] = [
         type: "transport",
         description:
           "Members of the Universidad de los Andes team will accompany delegates during the journey and provide on-site assistance upon arrival.",
-
         detailGroups: [
           {
             title: "Pick-Up Points",
@@ -103,22 +106,24 @@ const days: Day[] = [
           },
         ],
       },
-
       {
         time: "18:00 – 20:00",
         duration: "120 min",
         title: "Welcome Dinner",
         type: "social",
-
-        location: "La Central Cevichería · Kr 13 #85-14, Bogotá",
+        location:
+          "La Central Cevichería · Kr 13 #85-14, Bogotá",
         locationUrl: googleMapsUrl(
           "La Central Cevichería, Kr 13 #85-14, Bogotá"
         ),
-
         detailGroups: [
           {
             title: "Additional Information",
-            items: [{ text: "Dress code: Business formal" }],
+            items: [
+              {
+                text: "Dress code: Business formal",
+              },
+            ],
           },
         ],
       },
@@ -130,17 +135,14 @@ const days: Day[] = [
     short: "MON 31",
     date: "Monday, August 31",
     title: "Governance, Community & Impact",
-
     sessions: [
       {
         time: "07:30 – 08:30",
         duration: "60 min",
         title: "Transportation to Campus",
         type: "transport",
-
         description:
           "Universidad de los Andes staff will accompany delegates from the designated hotels to campus.",
-
         detailGroups: [
           {
             title: "Pick-Up Points",
@@ -149,30 +151,22 @@ const days: Day[] = [
         ],
       },
 
-      /* REGISTRATION + OPENING */
-
       {
         time: "08:30 – 09:15",
         duration: "45 min",
         title: "Welcome & Official Opening",
         type: "session",
         location: "Council Room · Rectors’ Building",
-
         subActivities: [
           {
-            time: "",
             title: "Registration & Welcome Coffee",
           },
           {
-            time: "",
-            title: "Official Opening : Presidents of Universidad de los Andes and HUC.",
-            description:
-              "",
+            title:
+              "Official Opening · Presidents of Universidad de los Andes and HUC.",
           },
         ],
       },
-
-      /* HUC PRESENTATIONS + MOU */
 
       {
         time: "09:15 – 10:15",
@@ -180,14 +174,12 @@ const days: Day[] = [
         title: "Introduction to New Members",
         type: "session",
         location: "Council Room · Rectors’ Building",
-
         subActivities: [
           {
-            time: "",
-            title: "HUC Universities' Short Presentation",
+            title:
+              "HUC Universities' Short Presentation",
           },
           {
-            time: "",
             title:
               "Introduction of New HUC Members & MOU Signing Ceremony",
           },
@@ -201,18 +193,14 @@ const days: Day[] = [
         type: "break",
       },
 
-      /* HIGH LEVEL PANEL */
-
       {
         time: "10:30 – 12:00",
         duration: "90 min",
         title: "High-Level Panel",
         type: "session",
         location: "Council Room · Rectors’ Building",
-
         description:
           "Conversation with the Presidents — A Climate Dialogue Across the Americas: Contrasting Perspectives from the Global North and South.",
-
         detailGroups: [
           {
             title: "Moderator",
@@ -223,7 +211,6 @@ const days: Day[] = [
               },
             ],
           },
-
           {
             title: "Panelists",
             items: [
@@ -246,49 +233,36 @@ const days: Day[] = [
               {
                 text:
                   "Carlos Araya Leandro — President, Universidad de Costa Rica (TBD)",
-              }
+              },
             ],
           },
-
           {
             title: "Participation",
             items: [
-
               {
-                text: "Hybrid session available for remote participants. Join the session here: Zoom Link.",
-                href: "https://uniandes-edu-co.zoom.us/j/89624317003",
+                text:
+                  "Hybrid session available for remote participants. Join the session here: Zoom Link.",
+                href:
+                  "https://uniandes-edu-co.zoom.us/j/89624317003",
               },
             ],
           },
         ],
-
-        /*
-        Cuando te entreguen el Zoom:
-        links: [
-          {
-            label: "Join via Zoom",
-            href: "PEGAR_AQUI_LINK_ZOOM"
-          }
-        ],
-        */
       },
-
-      /* WALK + CULTURAL PERFORMANCE */
 
       {
         time: "12:00 – 12:45",
         duration: "45 min",
-        title: "Official Photo & Cultural Performance",
+        title:
+          "Official Photo & Cultural Performance",
         type: "social",
         location: "Villa Paulina",
-
         subActivities: [
           {
-            time: "",
-            title: "Walk to Lunch Venue & Official Photo",
+            title:
+              "Walk to Lunch Venue & Official Photo",
           },
           {
-            time: "",
             title: "Cultural Performance",
           },
         ],
@@ -302,30 +276,27 @@ const days: Day[] = [
         location: "Villa Paulina",
       },
 
-      /* HUC BALANCE */
-
       {
         time: "14:15 – 15:45",
         duration: "90 min",
         title: "HUC Balance and Reflections",
         type: "session",
-        location: "Council Room · School of Engineering",
-
+        location:
+          "Council Room · School of Engineering",
         subActivities: [
           {
-            time: "",
-            title: "HUC Annual Report Presentation - HUC Secretariat.",
+            title:
+              "HUC Annual Report Presentation — HUC Secretariat",
           },
           {
-            time: "",
-            title: "Seed Fund Project Presentations & VRI Reflections",
+            title:
+              "Seed Fund Project Presentations & VRI Reflections",
           },
           {
-            time: "",
-            title: "Social Ideas Challenge Reflections",
+            title:
+              "Social Ideas Challenge Reflections",
           },
           {
-            time: "",
             title: "Testimonial Videos",
           },
         ],
@@ -338,18 +309,15 @@ const days: Day[] = [
         type: "break",
       },
 
-      /* WORKSHOP */
-
       {
         time: "16:00 – 17:45",
         duration: "105 min",
-        title: "Workshop: Fostering Collaborative Initiatives",
+        title:
+          "Workshop: Fostering Collaborative Initiatives",
         type: "workshop",
         location: "Universidad de los Andes",
-
         description:
           "Two parallel collaborative sessions on the HUC pillars of Research and Education to review and align ongoing initiatives, explore opportunities for continuity and enhancement, and identify potential new initiatives.",
-
         detailGroups: [
           {
             title: "Working Groups",
@@ -362,33 +330,14 @@ const days: Day[] = [
               },
             ],
           },
-
         ],
-
-        /*
-        Cuando te pasen los enlaces, descomenta y reemplaza:
-
-        links: [
-          {
-            label: "Research Working Group · Zoom",
-            href: "PEGAR_LINK_ZOOM_RESEARCH"
-          },
-          {
-            label: "Academics Working Group · Zoom",
-            href: "PEGAR_LINK_ZOOM_ACADEMICS"
-          },
-          {
-            label: "View Session Guidelines",
-            href: "PEGAR_LINK_DOCUMENTO_DINAMICA"
-          }
-        ],
-        */
       },
 
       {
         time: "17:45 – 18:00",
         duration: "15 min",
-        title: "Coffee Break & Walk to Dinner Venue",
+        title:
+          "Coffee Break & Walk to Dinner Venue",
         type: "break",
       },
 
@@ -398,16 +347,11 @@ const days: Day[] = [
         title: "Welcome Reception",
         type: "social",
         location: "ML Building · Rooftop",
-
-        detailGroups: [
-
-        ],
         subActivities: [
           {
-            time: "",
-            title: "HUC at a glance by the President. Mag. Julián Rodríguez — Universidad Austral ",
+            title:
+              "HUC at a glance by the President · Mag. Julián Rodríguez — Universidad Austral",
           },
-          
         ],
       },
     ],
@@ -418,17 +362,14 @@ const days: Day[] = [
     short: "TUE 1",
     date: "Tuesday, September 1",
     title: "Strategy & Projection",
-
     sessions: [
       {
         time: "08:00",
         duration: "60 min",
         title: "Transportation to Campus",
         type: "transport",
-
         description:
           "Members of the Universidad de los Andes team will accompany delegates during the journey to campus and provide on-site assistance upon arrival.",
-
         detailGroups: [
           {
             title: "Pick-Up Points",
@@ -437,18 +378,16 @@ const days: Day[] = [
         ],
       },
 
-      /* SHAPING 2027 */
-
       {
         time: "09:00 – 11:00",
         duration: "120 min",
-        title: "Workshop: Shaping the 2027 Efforts",
+        title:
+          "Workshop: Shaping the 2027 Efforts",
         type: "workshop",
-        location: "Council Room · School of Architecture & Design",
-
+        location:
+          "Council Room · School of Architecture & Design",
         description:
           "Strategic alignment session on the HUC pillars of Research and Education to consolidate insights from the previous workshop, reach consensus on the consortium's priorities and define milestones towards 2027.",
-
         detailGroups: [
           {
             title: "Session Objectives",
@@ -462,7 +401,8 @@ const days: Day[] = [
                   "Reach consensus on consortium priorities and efforts.",
               },
               {
-                text: "Define milestones towards 2027.",
+                text:
+                  "Define milestones towards 2027.",
               },
             ],
           },
@@ -470,24 +410,12 @@ const days: Day[] = [
             title: "Participation",
             items: [
               {
-                text: "Hybrid participation available.",
+                text:
+                  "Hybrid participation available.",
               },
             ],
           },
         ],
-
-        /*
-        links: [
-          {
-            label: "Join via Zoom",
-            href: "PEGAR_LINK_ZOOM"
-          },
-          {
-            label: "View Session Guidelines",
-            href: "PEGAR_LINK_DOCUMENTO"
-          }
-        ],
-        */
       },
 
       {
@@ -497,18 +425,15 @@ const days: Day[] = [
         type: "break",
       },
 
-      /* ACADEMIC DIALOGUE */
-
       {
         time: "11:15 – 12:45",
         duration: "90 min",
         title: "Academic Dialogue",
         type: "session",
-        location: "Council Room · School of Architecture & Design",
-
+        location:
+          "Council Room · School of Architecture & Design",
         description:
           "Best Practices Exchange Panel — “Leadership with Global Conscience: Shaping Tomorrow’s Leaders”.",
-
         detailGroups: [
           {
             title: "Moderator",
@@ -519,7 +444,6 @@ const days: Day[] = [
               },
             ],
           },
-
           {
             title: "Panelists",
             items: [
@@ -537,36 +461,26 @@ const days: Day[] = [
               },
               {
                 text:
-                  "Marina Santucci  Research Professor, School of Business Sciences, Universidad Austral",
+                  "Marina Santucci — Research Professor, School of Business Sciences, Universidad Austral",
               },
               {
                 text:
-                  "Valérie Amiraux Vice-Rector, Global Engagement and First Peoples",
+                  "Valérie Amiraux — Vice-Rector, Global Engagement and First Peoples",
               },
-
-              
             ],
           },
-
           {
             title: "Participation",
             items: [
               {
-                text: "Hybrid session available for remote participants. Join the session here: Zoom Link.",
-                href: "https://uniandes-edu-co.zoom.us/j/89624317003",
+                text:
+                  "Hybrid session available for remote participants. Join the session here: Zoom Link.",
+                href:
+                  "https://uniandes-edu-co.zoom.us/j/89624317003",
               },
             ],
           },
         ],
-
-        /*
-        links: [
-          {
-            label: "Join via Zoom",
-            href: "PEGAR_LINK_ZOOM"
-          }
-        ],
-        */
       },
 
       {
@@ -587,7 +501,8 @@ const days: Day[] = [
       {
         time: "14:30 – 16:00",
         duration: "90 min",
-        title: "Campus Tour: Uniandes’ Lighthouses",
+        title:
+          "Campus Tour: Uniandes’ Lighthouses",
         type: "social",
         location: "Universidad de los Andes",
       },
@@ -597,8 +512,8 @@ const days: Day[] = [
         duration: "60 min",
         title: "Closing Session",
         type: "session",
-        location: "Japan Center · UME Auditorium",
-
+        location:
+          "Japan Center · UME Auditorium",
         description:
           "Closing remarks and confirmation of the 2027 host institution.",
       },
@@ -608,7 +523,6 @@ const days: Day[] = [
         duration: "45 min",
         title: "Break Time",
         type: "break",
-
         description:
           "Time to take a pause and check emails. Optional stretching session.",
       },
@@ -617,21 +531,139 @@ const days: Day[] = [
         time: "18:00 – 20:00",
         duration: "120 min",
         title: "Closing Dinner",
-        location: "Japan Center · UME Auditorium",  
+        location:
+          "Japan Center · UME Auditorium",
         type: "social",
       },
     ],
   },
 ];
 
+const recommendationSections = [
+  {
+    title: "Entry into Colombia",
+    items: [
+      "Although citizens of visiting countries do not require a visa to enter Colombia, they must have a valid passport with at least 6 months’ validity at the time of entry.",
+      "It is recommended to have proof of accommodation booking and a return ticket readily available, as Migration authorities may request these.",
+      "It is recommended to complete the CheckMig form between 1 hour and 72 hours before travel. This pre-registration process facilitates entry and exit procedures with Migración Colombia.",
+    ],
+  },
+  {
+    title: "Hotels",
+    intro:
+      "Recommended hotels are located in the Chapinero area, a neighborhood near the university with restaurants, pharmacies and supermarkets.",
+    links: [
+      {
+        label:
+          "Mercure BH El Retiro · Av. Cl. 80 #10-11",
+        href: googleMapsUrl(
+          "Mercure BH El Retiro Bogotá"
+        ),
+      },
+      {
+        label:
+          "JW Marriott Hotel Bogotá · Cl. 73 #8-60",
+        href: googleMapsUrl(
+          "JW Marriott Hotel Bogotá"
+        ),
+      },
+      {
+        label:
+          "BH La Quinta · Cra. 5 #74-52",
+        href: googleMapsUrl(
+          "Hotel BH La Quinta Bogotá"
+        ),
+      },
+      {
+        label:
+          "Estelar Parque de la 93 Hotel · Cl. 93 #11-19",
+        href: googleMapsUrl(
+          "Estelar Parque de la 93 Hotel Bogotá"
+        ),
+      },
+    ],
+  },
+  {
+    title: "Attendees",
+    items: [
+      "Each institution is asked to register all its attendees through the designated form to confirm the number of participants and identify any dietary restrictions.",
+      "The form should be completed by the date indicated by the event organizers.",
+    ],
+  },
+  {
+    title: "Dress Code",
+    items: [
+      "Business casual attire is recommended for all activities.",
+      "For on-campus activities, closed-toe shoes are recommended. High heels and platform shoes should be avoided.",
+    ],
+  },
+  {
+    title: "Weather",
+    items: [
+      "The average temperature in Bogotá ranges from 12°C to 19°C (54°F–66°F), with a chance of rain.",
+      "We recommend bringing a light jacket and an umbrella.",
+    ],
+  },
+  {
+    title: "Transportation",
+    items: [
+      "Universidad de los Andes will provide transportation from the hotels to the main campus during the activities on August 31 and September 1.",
+      "Transportation to and from the airport should be arranged by each institution.",
+      "For airport transfers, Uniandes recommends contacting Andrés Ruíz, a trusted transportation provider, at +57 315 554 9113. Participants wishing to use this service should coordinate directly with him.",
+    ],
+  },
+  {
+    title: "Currency Exchange",
+    items: [
+      "The official currency is the Colombian Peso (COP).",
+      "It is recommended to exchange money at authorized exchange offices, preferably at the airport or in shopping centers near the hotel.",
+      "International credit and debit cards are widely accepted.",
+    ],
+  },
+  {
+    title: "Dining",
+    items: [
+      "The recommended hotels and surrounding areas offer a wide range of dining options, including healthy, vegetarian and gluten-free alternatives.",
+    ],
+  },
+  {
+    title: "Travel Recommendations",
+    items: [
+      "Bogotá is located at an elevation of over 2,600 meters (8,500 feet) above sea level. Mild fatigue may be experienced during the first few days.",
+      "It is recommended to stay hydrated, avoid excessive physical exertion and eat light meals upon arrival.",
+    ],
+  },
+  {
+    title: "Safety Recommendations",
+    items: [
+      "Avoid carrying large amounts of cash.",
+      "Use taxis arranged through the hotel or trusted ride-hailing apps such as DiDi, Cabify or Uber.",
+      "We recommend having medical insurance that covers any contingencies during your stay in Colombia, as Uniandes will not cover medical expenses.",
+    ],
+  },
+  {
+    title: "Communication",
+    items: [
+      "If you wish to stay connected locally, you may purchase an eSIM or physical SIM card from providers such as Claro, Movistar or Tigo.",
+      "Most hotels, cafés and restaurants offer free Wi-Fi.",
+      "Colombia’s international dialing code is +57.",
+    ],
+  },
+];
+
 function App() {
-  const [selectedDay, setSelectedDay] = useState("day1");
+  const [selectedDay, setSelectedDay] =
+    useState("day1");
 
-  const [expandedSession, setExpandedSession] = useState<
-    string | null
-  >(null);
+  const [expandedSession, setExpandedSession] =
+    useState<string | null>(null);
 
-  const day = days.find((item) => item.id === selectedDay)!;
+  const [modal, setModal] =
+    useState<ModalType>(null);
+
+  const day = days.find(
+    (item) => item.id === selectedDay
+  )!;
 
   const toggleSession = (id: string) => {
     setExpandedSession((current) =>
@@ -639,17 +671,52 @@ function App() {
     );
   };
 
-  const hasExpandableContent = (session: Session) =>
+  const hasExpandableContent = (
+    session: Session
+  ) =>
     Boolean(
       session.subActivities?.length ||
         session.detailGroups?.length ||
         session.links?.length
     );
 
+  useEffect(() => {
+    if (!modal) {
+      document.body.classList.remove(
+        "modal-open"
+      );
+      return;
+    }
+
+    document.body.classList.add("modal-open");
+
+    const closeWithEscape = (
+      event: KeyboardEvent
+    ) => {
+      if (event.key === "Escape") {
+        setModal(null);
+      }
+    };
+
+    window.addEventListener(
+      "keydown",
+      closeWithEscape
+    );
+
+    return () => {
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+      window.removeEventListener(
+        "keydown",
+        closeWithEscape
+      );
+    };
+  }, [modal]);
+
   return (
     <div className="site">
-      {/* HEADER */}
-
       <header className="topbar">
         <div className="topbar-inner">
           <img
@@ -666,12 +733,40 @@ function App() {
         </div>
       </header>
 
-      {/* HERO */}
-
       <section className="hero">
-        <div className="hero-overlay" />
-
         <div className="hero-content">
+          <div className="hero-tools">
+            <button
+              type="button"
+              className="glass-action-button"
+              onClick={() =>
+                setModal("recommendations")
+              }
+            >
+              <span className="glass-action-icon">
+                ✦
+              </span>
+
+              <span>
+                Travel Tips & Recommendations
+              </span>
+            </button>
+
+            <button
+              type="button"
+              className="glass-action-button"
+              onClick={() =>
+                setModal("attendees")
+              }
+            >
+              <span className="glass-action-icon">
+                ◉
+              </span>
+
+              <span>Attendees</span>
+            </button>
+          </div>
+
           <span className="eyebrow">
             BOGOTÁ · COLOMBIA
           </span>
@@ -683,9 +778,10 @@ function App() {
           </h1>
 
           <p>
-            Connecting universities across the Americas to
-            strengthen collaboration, research, education and
-            collective impact.
+            Connecting universities across the
+            Americas to strengthen collaboration,
+            research, education and collective
+            impact.
           </p>
 
           <div className="hero-meta">
@@ -712,8 +808,6 @@ function App() {
       </section>
 
       <main>
-        {/* GENERAL ASSEMBLY */}
-
         <section className="intro container">
           <span className="section-number">
             01
@@ -729,11 +823,11 @@ function App() {
             </h2>
 
             <p className="intro-copy">
-              Presidents and university delegations from
-              across the Americas come together at
-              Universidad de los Andes for three days of
-              dialogue, collaboration and strategic
-              planning.
+              Presidents and university delegations
+              from across the Americas come together
+              at Universidad de los Andes for three
+              days of dialogue, collaboration and
+              strategic planning.
             </p>
 
             <div className="stats">
@@ -759,8 +853,6 @@ function App() {
           </div>
         </section>
 
-        {/* PROGRAM */}
-
         <section className="program-section">
           <div className="container">
             <div className="program-heading">
@@ -779,8 +871,6 @@ function App() {
               </p>
             </div>
 
-            {/* DAY TABS */}
-
             <div className="day-tabs">
               {days.map((item) => (
                 <button
@@ -796,20 +886,15 @@ function App() {
                   }}
                 >
                   <span>{item.short}</span>
-
                   <small>{item.title}</small>
                 </button>
               ))}
             </div>
 
-            {/* DAY HEADER */}
-
             <div className="day-header">
               <p>{day.date}</p>
               <h3>{day.title}</h3>
             </div>
-
-            {/* TIMELINE */}
 
             <div className="timeline">
               {day.sessions.map(
@@ -817,15 +902,19 @@ function App() {
                   const sessionId = `${day.id}-${index}`;
 
                   const expanded =
-                    expandedSession === sessionId;
+                    expandedSession ===
+                    sessionId;
 
                   const expandable =
-                    hasExpandableContent(session);
+                    hasExpandableContent(
+                      session
+                    );
 
                   return (
                     <article
                       className={`session-card ${
-                        session.type ?? "session"
+                        session.type ??
+                        "session"
                       }`}
                       key={sessionId}
                     >
@@ -836,7 +925,9 @@ function App() {
 
                         {session.duration && (
                           <span>
-                            {session.duration}
+                            {
+                              session.duration
+                            }
                           </span>
                         )}
                       </div>
@@ -850,13 +941,16 @@ function App() {
                                 "TRANSPORT"}
 
                               {session.type ===
-                                "break" && "BREAK"}
+                                "break" &&
+                                "BREAK"}
 
                               {session.type ===
-                                "meal" && "MEAL"}
+                                "meal" &&
+                                "MEAL"}
 
                               {session.type ===
-                                "social" && "SOCIAL"}
+                                "social" &&
+                                "SOCIAL"}
 
                               {session.type ===
                                 "workshop" &&
@@ -869,7 +963,9 @@ function App() {
                             </span>
 
                             <h4>
-                              {session.title}
+                              {
+                                session.title
+                              }
                             </h4>
                           </div>
 
@@ -897,8 +993,6 @@ function App() {
                           )}
                         </div>
 
-                        {/* LOCATION */}
-
                         {session.location &&
                           (session.locationUrl ? (
                             <a
@@ -909,23 +1003,27 @@ function App() {
                               rel="noopener noreferrer"
                               className="location location-link"
                             >
-                              ⌖ {session.location}
+                              ⌖{" "}
+                              {
+                                session.location
+                              }
                             </a>
                           ) : (
                             <p className="location">
-                              ⌖ {session.location}
+                              ⌖{" "}
+                              {
+                                session.location
+                              }
                             </p>
                           ))}
 
-                        {/* DESCRIPTION */}
-
                         {session.description && (
                           <p className="description">
-                            {session.description}
+                            {
+                              session.description
+                            }
                           </p>
                         )}
-
-                        {/* EXPANDED INFO */}
 
                         {expandable && (
                           <div
@@ -936,12 +1034,11 @@ function App() {
                             }`}
                           >
                             <div className="details-inner">
-                              {/* SUB ACTIVITIES */}
-
                               {session.subActivities &&
                                 session
                                   .subActivities
-                                  .length > 0 && (
+                                  .length >
+                                  0 && (
                                   <div className="subactivities">
                                     {session.subActivities.map(
                                       (
@@ -960,12 +1057,12 @@ function App() {
                                             </span>
                                           )}
 
-                                          <div>
-                                            <strong>
+                                          <div className="subactivity-content">
+                                            <span className="subactivity-title">
                                               {
                                                 activity.title
                                               }
-                                            </strong>
+                                            </span>
 
                                             {activity.description && (
                                               <p>
@@ -981,8 +1078,6 @@ function App() {
                                   </div>
                                 )}
 
-                              {/* DETAIL GROUPS */}
-
                               {session.detailGroups?.map(
                                 (
                                   group,
@@ -993,7 +1088,9 @@ function App() {
                                     key={`${group.title}-${groupIndex}`}
                                   >
                                     <h5>
-                                      {group.title}
+                                      {
+                                        group.title
+                                      }
                                     </h5>
 
                                     {group.items.map(
@@ -1035,14 +1132,15 @@ function App() {
                                 )
                               )}
 
-                              {/* ACTION BUTTONS */}
-
                               {session.links &&
-                                session.links.length >
+                                session.links
+                                  .length >
                                   0 && (
                                   <div className="session-links">
                                     {session.links.map(
-                                      (link) => (
+                                      (
+                                        link
+                                      ) => (
                                         <a
                                           key={
                                             link.label
@@ -1057,6 +1155,7 @@ function App() {
                                           {
                                             link.label
                                           }
+
                                           <span>
                                             ↗
                                           </span>
@@ -1076,47 +1175,7 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* RECOMMENDATIONS */}
-
-        <section className="information-section recommendations-section">
-          <div className="container">
-            <p className="section-kicker">
-              03 · RECOMMENDATIONS
-            </p>
-
-            <h2>Useful information for your stay</h2>
-
-            <p className="section-placeholder">
-              Practical recommendations for delegates
-              will be available here soon.
-            </p>
-          </div>
-        </section>
-
-        {/* ATTENDEES */}
-
-        <section className="information-section attendees-section">
-          <div className="container">
-            <p className="section-kicker">
-              04 · ATTENDEES
-            </p>
-
-            <h2>HUC General Assembly attendees</h2>
-
-            <p className="section-placeholder">
-              The complete list of participants is
-              currently being finalized and will be
-              published here soon.
-            </p>
-          </div>
-        </section>
-
-        {/* HUC NETWORK */}
-
-        </main>
-
-      {/* FOOTER */}
+      </main>
 
       <footer>
         <div className="container footer-inner">
@@ -1136,6 +1195,178 @@ function App() {
           </span>
         </div>
       </footer>
+
+      {modal && (
+        <div
+          className="modal-backdrop"
+          onMouseDown={() =>
+            setModal(null)
+          }
+        >
+          <div
+            className="glass-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={
+              modal ===
+              "recommendations"
+                ? "Travel Tips and Recommendations"
+                : "Attendees"
+            }
+            onMouseDown={(event) =>
+              event.stopPropagation()
+            }
+          >
+            <div className="glass-modal-glow" />
+
+            <header className="modal-header">
+              <div>
+                <span className="modal-eyebrow">
+                  HUC GENERAL ASSEMBLY 2026
+                </span>
+
+                <h2>
+                  {modal ===
+                  "recommendations"
+                    ? "Travel Tips & Recommendations"
+                    : "Attendees"}
+                </h2>
+
+                <p>
+                  Universidad de los Andes ·
+                  Bogotá, Colombia
+                </p>
+              </div>
+
+              <button
+                type="button"
+                className="modal-close"
+                onClick={() =>
+                  setModal(null)
+                }
+                aria-label="Close"
+              >
+                ×
+              </button>
+            </header>
+
+            <div className="modal-content">
+              {modal ===
+                "recommendations" && (
+                <div className="recommendations-grid">
+                  {recommendationSections.map(
+                    (section) => (
+                      <section
+                        className="recommendation-card"
+                        key={
+                          section.title
+                        }
+                      >
+                        <span className="recommendation-dot" />
+
+                        <h3>
+                          {
+                            section.title
+                          }
+                        </h3>
+
+                        {"intro" in
+                          section &&
+                          section.intro && (
+                            <p className="recommendation-intro">
+                              {
+                                section.intro
+                              }
+                            </p>
+                          )}
+
+                        {"items" in
+                          section &&
+                          section.items && (
+                            <ul>
+                              {section.items.map(
+                                (
+                                  item
+                                ) => (
+                                  <li
+                                    key={
+                                      item
+                                    }
+                                  >
+                                    {
+                                      item
+                                    }
+                                  </li>
+                                )
+                              )}
+                            </ul>
+                          )}
+
+                        {"links" in
+                          section &&
+                          section.links && (
+                            <div className="recommendation-links">
+                              {section.links.map(
+                                (
+                                  link
+                                ) => (
+                                  <a
+                                    href={
+                                      link.href
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    key={
+                                      link.label
+                                    }
+                                  >
+                                    <span>
+                                      {
+                                        link.label
+                                      }
+                                    </span>
+
+                                    <span>
+                                      ↗
+                                    </span>
+                                  </a>
+                                )
+                              )}
+                            </div>
+                          )}
+                      </section>
+                    )
+                  )}
+                </div>
+              )}
+
+              {modal ===
+                "attendees" && (
+                <div className="attendees-coming-soon">
+                  <div className="attendees-icon">
+                    ◉
+                  </div>
+
+                  <span className="modal-eyebrow">
+                    ATTENDEES
+                  </span>
+
+                  <h3>
+                    Participant information
+                    is being finalized
+                  </h3>
+
+                  <p>
+                    The complete attendee
+                    information will be
+                    available here soon.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
