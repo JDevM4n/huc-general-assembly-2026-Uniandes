@@ -537,8 +537,13 @@ const days: Day[] = [
               },
               {
                 text:
-                  "Horacio Payá — Director, Master's in Environmental Policy, Law and Management, Universidad Austral (TBD)",
+                  "Marina Santucci  Research Professor, School of Business Sciences, Universidad Austral",
               },
+              {
+                text:
+                  "Valérie Amiraux Vice-Rector, Global Engagement and First Peoples",
+              },
+
               
             ],
           },
