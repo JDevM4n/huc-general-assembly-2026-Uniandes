@@ -755,4 +755,218 @@ footer {
     width: 115px;
   }
 }
+
+/* =====================================================
+   HUC - NEW AGENDA DETAILS
+===================================================== */
+
+/* CLICKABLE LOCATIONS */
+
+.location-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.location-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* DETAIL GROUP */
+
+.detail-group {
+  margin-top: 25px;
+}
+
+.detail-group:first-child {
+  margin-top: 10px;
+}
+
+.detail-group h5 {
+  margin: 0 0 10px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+
+  color: var(--navy);
+}
+
+/* CLICKABLE DETAIL */
+
+.detail-row a {
+  margin: 0;
+
+  color: #333;
+  line-height: 1.5;
+  font-size: 14px;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.detail-row a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+/* SUB ACTIVITIES */
+
+.subactivities {
+  margin-top: 5px;
+
+  border-top: 1px solid #dedede;
+}
+
+.subactivities {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.subactivity-time {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: var(--navy);
+}
+
+.subactivity strong {
+  display: block;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  color: #202020;
+}
+
+.subactivity p {
+  margin: 7px 0 0;
+
+  color: #666;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ZOOM / DOCUMENT BUTTONS */
+
+.session-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.session-link {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  min-width: 190px;
+
+  padding: 13px 17px;
+
+  background: var(--navy);
+  color: white;
+
+  border-radius: 4px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.session-link:hover {
+  background: var(--blue);
+
+  transform: translateY(-2px);
+}
+
+.session-link span {
+  color: var(--yellow);
+  font-size: 16px;
+}
+
+/* RECOMMENDATIONS + ATTENDEES */
+
+.information-section {
+  padding: 100px 0;
+}
+
+.information-section h2 {
+  margin: 0;
+
+  max-width: 760px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(38px, 5vw, 60px);
+
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.section-placeholder {
+  max-width: 680px;
+
+  margin-top: 30px;
+
+  color: var(--gray);
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.recommendations-section {
+  background: white;
+}
+
+.attendees-section {
+  background: var(--light);
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .subactivity {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .session-links {
+    flex-direction: column;
+  }
+
+  .session-link {
+    width: 100%;
+  }
+
+  .information-section {
+    padding: 70px 0;
+  }
+}
 }
