@@ -755,7 +755,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Interim President and Vice-Chancellor",
       institution: "York University",
       country: "Canada",
-      image: "/images/participants/lisa-philipps.jpg",
+      image: "/images/participants/lisa-philipps1.jpg",
       bio: "Lisa Philipps is Interim President and Vice-Chancellor of York University and has been part of the York community for nearly three decades. She holds an LLB from the University of Toronto and an LLM from York University. Her academic work focuses on taxation law, fiscal policy, gender and social policy, and higher education policy.",
     },
     {
@@ -779,7 +779,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Rector",
       institution: "Pontificia Universidad Católica Madre y Maestra",
       country: "Dominican Republic",
-      image: "/images/participants/secilio-espinal.jpg",
+      image: "/images/participants/secilio-espinal1.jpg",
       bio: "Secilio Espinal Espinal has served as Rector of Pontificia Universidad Católica Madre y Maestra since November 2021. He is a Dominican priest, academic and university leader with a PhD in Education focused on Higher Education Leadership, along with graduate studies in university management and theology. He previously served as Rector of UCATEBA and has held leadership roles in academic and community organizations.",
     },
     {
@@ -845,7 +845,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Director of International Relations",
       institution: "Universidad Austral",
       country: "Argentina",
-      image: "/images/participants/maria-gabriela-espeche.jpg",
+      image: "/images/participants/maria-gabriela-espeche1.jpg",
       bio: "María Gabriela Espeche Gil directs international relations at Universidad Austral, overseeing international partnerships and mobility programs. She studied at the University of Buenos Aires and has specialized training in international education and intercultural competence. Her work focuses on strategic partnerships, international opportunities and intercultural learning.",
     },
     {
@@ -925,7 +925,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Assistant Vice Provost and Director for International Collaborations",
       institution: "University of California, Los Angeles",
       country: "United States",
-      image: "/images/participants/kathryn-paul.jpg",
+      image: "/images/participants/kathryn-paul1.jpg",
       bio: "Kathryn Paul is Assistant Vice Provost and Director for International Collaborations at UCLA. She helps implement international agreements and works across academic, legal and administrative units to develop global partnerships. She brings more than 20 years of grant and project-management experience at UCLA.",
     },
     {
@@ -949,7 +949,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Academic Vice President",
       institution: "Universidad de los Andes",
       country: "Colombia",
-      image: "/images/participants/silvia-caro.jpg",
+      image: "/images/participants/silvia-caro1.jpg",
       bio: "Silvia Caro Spinel is Academic Vice President at Universidad de los Andes and a Full Professor in Civil and Environmental Engineering. She previously served as Associate Dean for Academic Affairs in Engineering and led initiatives in teaching, curriculum reform, academic-quality automation, online education and internationalization. Her research focuses on transportation infrastructure and pavement engineering.",
     },
     {
@@ -973,7 +973,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Director of Internationalization",
       institution: "Universidad de los Andes",
       country: "Colombia",
-      image: "/images/participants/johanna-mick-clausen.jpg",
+      image: "/images/participants/johanna-mick-clausen1.jpg",
       bio: "Johanna Mick Clausen is Director of Internationalization at Universidad de los Andes. She holds degrees in Economics and Philosophy from Uniandes and graduate degrees in philosophy and social thought from the University of Chicago. Her work centers on ethics, political theory, economic thought, liberal education and the internationalization of higher education.",
     },
     {
@@ -989,7 +989,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Head of Academic Cooperation",
       institution: "Universidad de los Andes",
       country: "Colombia",
-      image: "/images/participants/juan-david-martinez.jpg",
+      image: "/images/participants/juan-david-martinez1.jpg",
       bio: "Juan David Martínez is Head of Academic Cooperation at Universidad de los Andes, where he develops institutional partnerships with universities, research centers and diplomatic missions. He holds a master’s degree in International Relations and has experience in higher education management, international cooperation and Colombia’s diplomatic service.",
     },
     {
@@ -1001,7 +1001,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       bio: "Yadira Mogollón Acevedo is Head of Mobility at Universidad de los Andes and has more than two decades of experience in higher education internationalization. She has led mobility programs, exchange policies and international student services, with a focus on global learning opportunities and intercultural engagement.",
     },
     {
-      name: "Andrés Mantilla-Orozco",
+      name: "Andrés Mantilla Orozco",
       role: "Science Diplomacy Officer",
       institution: "Universidad de los Andes",
       country: "Colombia",
@@ -1029,7 +1029,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Academic Cooperation Officer",
       institution: "Universidad de los Andes",
       country: "Colombia",
-      image: "/images/participants/johan-cruz.jpg",
+      image: "/images/participants/johan-cruz1.jpg",
       bio: "Johan Sebastián Cruz is an Academic Cooperation Officer in the Office of International Affairs at Universidad de los Andes. He holds a degree in Business and International Relations and is pursuing graduate studies in Global Studies and International Cooperation. He has more than five years of experience in higher education internationalization.",
     },
     {
@@ -1074,6 +1074,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       institution: "Universidad de los Andes",
       country: "Colombia",
       image: "/images/participants/juan-camilo-cardenas.jpg",
+      virtual: true,
       bio: "Juan Camilo Cárdenas holds a PhD in Environmental and Natural Resource Economics from the University of Massachusetts Amherst. As Director of the Center for the Sustainable Development Goals for Latin America and the Caribbean, he leads initiatives connecting research, education and public policy to advance sustainability and climate action across the region.",
     },
     {
@@ -1102,7 +1103,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       bio: "Marina Santucci is an Associate Professor at Universidad Austral and a researcher at the Center for Sustainability and Social Innovation. Her research and publications cover knowledge management, agile methodologies, climate change in SMEs, sustainable reporting and responsible practices across industries. Her current work focuses on regenerative business models and responsible consumption through digital platforms.",
     },
     {
-      name: "Valeria Ochoa-Herrera",
+      name: "Valeria Ochoa Herrera",
       role: "Professor, College of Sciences and Engineering · Head of Environmental Management Office",
       institution: "Universidad San Francisco de Quito",
       country: "Ecuador",
@@ -1122,7 +1123,7 @@ const universityProfiles: UniversityProfile[] = [
       "A large, globally oriented research university known for access, experiential learning, and impact-driven work on the UN Sustainable Development Goals.",
     highlight:
       "Top 40 globally in the Times Higher Education Impact Rankings 2025.",
-    ranking: "#=322",
+    ranking: "322+",
     students: "53,100+ (June 2025)",
     academicOffer: "200+ undergraduate and graduate degree programs",
   },
@@ -1134,7 +1135,7 @@ const universityProfiles: UniversityProfile[] = [
       "The Dominican Republic’s first university, combining national reach with a nonprofit, Catholic and internationally connected mission.",
     highlight:
       "No. 1 in the Dominican Republic in QS Latin America & the Caribbean 2026; fourth in the Caribbean.",
-    ranking: "#1401+",
+    ranking: "1401+",
     students: "12,774 (QS institutional profile)",
     academicOffer:
       "166 academic offerings reported in 2022, including 41 undergraduate, 84 master’s and 3 doctoral programs",
@@ -1147,7 +1148,7 @@ const universityProfiles: UniversityProfile[] = [
       "Costa Rica’s oldest and largest public university and a national anchor for teaching, research, and social action.",
     highlight:
       "No. 15 in Latin America and the highest-ranked institution in Costa Rica and Central America.",
-    ranking: "#=463",
+    ranking: "463+",
     students: "44,499 (First academic cycle 2026)",
     academicOffer:
       "188 academic programs, including doctoral programs, specialties, academic and professional master’s programs, licentiate degrees, undergraduate degrees and diplomas",
@@ -1160,7 +1161,7 @@ const universityProfiles: UniversityProfile[] = [
       "Colombia’s leading university, grounded in liberal education, scientific thinking, humanistic values and excellence, and committed to using knowledge, creativity and technology to build a better future.",
     highlight:
       "No. 8 in QS Latin America & the Caribbean 2026 and the highest-ranked university in Colombia.",
-    ranking: "#=233",
+    ranking: "233+",
     students: "20,629 (Annual report · June 2026)",
     academicOffer: "190 undergraduate and postgraduate programs",
   },
@@ -1171,7 +1172,7 @@ const universityProfiles: UniversityProfile[] = [
     summary:
       "Ecuador’s first private liberal-arts university, with field-based learning and research in both the Galápagos Islands and the Amazon.",
     highlight: "No. 38 in QS Latin America & the Caribbean 2026.",
-    ranking: "#771–780",
+    ranking: "771–780",
     students: "9,050 (QS institutional profile)",
     academicOffer: "51 bachelor’s, 15+ master’s and 1 doctoral program",
   },
@@ -1183,7 +1184,7 @@ const universityProfiles: UniversityProfile[] = [
       "A specialist research university whose identity and impact are centered on medicine, public health and the life sciences.",
     highlight:
       "Peru’s No. 1 university for the eighth consecutive year in the THE World University Rankings 2026.",
-    ranking: "#1001–1200",
+    ranking: "1001–1200",
     students: "10,260 (QS institutional profile)",
     academicOffer: "20+ undergraduate careers and 67 postgraduate programs",
   },
@@ -1195,7 +1196,7 @@ const universityProfiles: UniversityProfile[] = [
       "A research-intensive public university with an unusually large postgraduate community and a major share of Brazil’s advanced-degree research.",
     highlight:
       "Postgraduate students represent about 48% of enrolment; Unicamp accounts for roughly 12% of master’s and doctoral theses under development in Brazil.",
-    ranking: "#=277",
+    ranking: "277+",
     students: "Approximately 33,000",
     academicOffer: "65 undergraduate courses and 169 postgraduate programs",
   },
@@ -1206,7 +1207,7 @@ const universityProfiles: UniversityProfile[] = [
     summary:
       "A Catholic university offering a broad range of academic programs and providing strong regional leadership with consistent strengths across many fields.",
     highlight: "No. 1 in QS Latin America & the Caribbean 2026.",
-    ranking: "#=119",
+    ranking: "119+",
     students: "40,536",
     academicOffer:
       "71 undergraduate; 109 master’s (including 4 online); 39 doctoral; and 76 clinical-specialty programs",
@@ -1221,7 +1222,7 @@ const universityProfiles: UniversityProfile[] = [
       "A private nonprofit university with a national footprint, recognized for research output and international quality assurance.",
     highlight:
       "Recognized as a leading research university in Chile and consistently ranked among the top five nationwide in scientific research output.",
-    ranking: "#1001–1200 · Top 50 LATAM · Top 10 Chile",
+    ranking: "1001–1200 · Top 50 LATAM · Top 10 Chile",
     students: "66,000+ across campuses and online",
     academicOffer:
       "68 undergraduate, 39 master’s, 22 medical and dental specialties and 15 doctoral programs",
@@ -1234,7 +1235,7 @@ const universityProfiles: UniversityProfile[] = [
       "A not-for-profit university recognized for personalized education, research, active teaching methods and high-level business education.",
     highlight:
       "Argentina’s No. 1 privately managed university in QS Latin America & the Caribbean 2026; also No. 1 in Argentina in THE WUR 2026.",
-    ranking: "#=530",
+    ranking: "530+",
     students: "11,000+",
     academicOffer:
       "100+ undergraduate, pre-degree, postgraduate and specialization programs",
@@ -1261,7 +1262,7 @@ const universityProfiles: UniversityProfile[] = [
     summary:
       "A research-intensive French-language ecosystem that brings together Université de Montréal, HEC Montréal and Polytechnique Montréal.",
     highlight: "Canada’s No. 2 university by volume of research activity.",
-    ranking: "#=162",
+    ranking: "162+",
     students: "71,146 across UdeM and affiliated schools",
     academicOffer: "600 study programs across all cycles",
   },
@@ -1273,7 +1274,7 @@ const universityProfiles: UniversityProfile[] = [
       "A leading public research university whose campus helped launch the Internet, with exceptional breadth across the arts, sciences, health and professional education.",
     highlight:
       "Ranked the No. 1 public university in the United States in eight of the past nine years by U.S. News.",
-    ranking: "#49",
+    ranking: "49+",
     students:
       "49,013 in 2025–26: 33,534 undergraduate; 13,898 graduate; 1,581 interns/residents",
     academicOffer:
@@ -1854,7 +1855,7 @@ function App() {
 
                       <div className="welcome-guide-tags" aria-label="Guide topics">
                         <span>Welcome Page English</span>
-                        <span>Welcome Page Español</span>
+                        <span>Welcome Page Spanish</span>
                       </div>
                     </div>
 
@@ -1875,7 +1876,7 @@ function App() {
                         rel="noopener noreferrer"
                         className="welcome-guide-link welcome-guide-link--secondary"
                       >
-                        Welcome Page Español
+                        Welcome Page Spanish
                         <span aria-hidden="true">↗</span>
                       </a>
                     </div>
