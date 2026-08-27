@@ -375,21 +375,7 @@ const days: Day[] = [
         location: "Universidad de los Andes",
 
         description:
-          "Two parallel collaborative sessions on the HUC pillars of Research and Education to review and align ongoing initiatives, explore opportunities for continuity and enhancement, and identify potential new initiatives.",
-
-        detailGroups: [
-          {
-            title: "Working Groups",
-            items: [
-              {
-                text: "Research Working Group",
-              },
-              {
-                text: "Academics Working Group",
-              },
-            ],
-          },
-        ],
+          "Collaborative working tables on the HUC pillars, including Research, Education, and other priority areas, to review and align ongoing initiatives, explore opportunities for continuity and enhancement, and identify potential new initiatives.",
       },
 
       {
@@ -465,15 +451,6 @@ const days: Day[] = [
               },
               {
                 text: "Define milestones towards 2027.",
-              },
-            ],
-          },
-
-          {
-            title: "Participation",
-            items: [
-              {
-                text: "Hybrid participation available.",
               },
             ],
           },
