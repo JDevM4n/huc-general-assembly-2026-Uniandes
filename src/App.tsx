@@ -778,6 +778,14 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       bio: "María Montt Strabucchi has served as Vice President for International Affairs at PUC Chile since 2025. She holds a BA in History, an MA in Chinese Studies from SOAS University of London and a PhD in Latin American Cultural Studies from the University of Manchester. Her research examines cultural and diplomatic relations between China, Asia and Latin America.",
     },
     {
+      name: "Rafael Dias",
+      role: "Executive Director for International Relations",
+      institution: "Universidade Estadual de Campinas",
+      country: "Brazil",
+      image: "/images/participants/Rafel_Díaz.jpeg",
+      bio: "Rafael Dias is a Full Professor at the University of Campinas (Unicamp) and currently serves as Executive Director for International Relations. His research focuses on science, technology and innovation policy, social innovation, and science diplomacy. He holds a PhD in Science and Technology Policy from Unicamp and conducted postdoctoral research at the University of Sussex, UK.",
+    },
+    {
       name: "Evelissy Rodríguez",
       role: "Vice President for Administration and Finance",
       institution: "Pontificia Universidad Católica Madre y Maestra",
@@ -985,6 +993,14 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       image: "/images/participants/andres-mantilla-orozco.jpg",
       bio: "Andrés Mantilla is a Science Diplomacy Officer at Universidad de los Andes, where he develops international partnerships that support research, innovation, entrepreneurship and academic collaboration. He holds an MSc in Biomedical Engineering and previously conducted interdisciplinary research in nanobiomaterials, drug delivery, microfluidics and computational modeling.",
     },
+    {
+  name: "Ana María Aponte",
+  role: "Information Professional",
+  institution: "Universidad de los Andes",
+  country: "Colombia",
+  image: "/images/participants/ana-maria-aponte.jpg",
+  bio: "Ana María Aponte is an Information Professional at Universidad de los Andes, where she supports internationalization efforts through information management and digital literacy initiatives."
+},
     {
       name: "Maria Jose Saenz",
       role: "Science Diplomacy Officer",
