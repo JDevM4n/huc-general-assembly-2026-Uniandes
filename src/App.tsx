@@ -732,7 +732,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Interim President and Vice-Chancellor",
       institution: "York University",
       country: "Canada",
-      image: "/images/participants/lisa-philipps1.jpg",
+      image: "/images/participants/lisa-philipps2.jpeg",
       bio: "Lisa Philipps is Interim President and Vice-Chancellor of York University, where she has spent nearly three decades, including seven years as Provost and Vice-President Academic. Her leadership focuses on academic quality, research and innovation, and community engagement. An expert in taxation law and fiscal policy, she has advised bodies including Ontario's Ministry of Finance and the National Association of Women and the Law. "
     },
     {
@@ -958,7 +958,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "General Secretary",
       institution: "Universidad de los Andes",
       country: "Colombia",
-      image: "/images/participants/alejandro-noguera.jpg",
+      image: "/images/participants/alejandro-noguera.jpeg",
       bio: "Alejandro Noguera Cepeda is the General Secretary at Universidad de los Andes. He holds a law degree from Pontificia Universidad Javeriana, a specialization in Educational Institutions Management from Universidad de los Andes, and a Master of Laws from Fordham University School of Law in the United States. He has held leadership positions in education, including Rector of Gimnasio Campestre and Vice President for Transformation at CESA. His experience includes educational leadership, institutional transformation, accreditation, and international education."
     },
     {
