@@ -733,7 +733,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       institution: "York University",
       country: "Canada",
       image: "/images/participants/lisa-philipps1.jpg",
-      bio: "Lisa Philipps is Interim President and Vice-Chancellor of York University and has been part of the York community for nearly three decades. She holds an LLB from the University of Toronto and an LLM from York University. Her academic work focuses on taxation law, fiscal policy, gender and social policy, and higher education policy.",
+      bio: "Lisa Philipps is Interim President and Vice-Chancellor of York University, where she has spent nearly three decades, including seven years as Provost and Vice-President Academic. Her leadership focuses on academic quality, research and innovation, and community engagement. An expert in taxation law and fiscal policy, she has advised bodies including Ontario's Ministry of Finance and the National Association of Women and the Law. "
     },
     {
       name: "Juan Carlos de la Llera Martin",
@@ -952,6 +952,14 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       country: "Colombia",
       image: "/images/participants/mauricio-olivera.jpg",
       bio: "Mauricio Olivera is Vice President for Administration and Finance at Universidad de los Andes. An economist with graduate studies in the United States, his career spans academic research, public policy and executive leadership. He has held senior roles in government, social protection, consulting and higher education, with a focus on economic policy and institutional management.",
+    },
+    {
+      name: "Alejandro Noguera",
+      role: "General Secretary",
+      institution: "Universidad de los Andes",
+      country: "Colombia",
+      image: "/images/participants/alejandro-noguera.jpg",
+      bio: "Alejandro Noguera Cepeda is the General Secretary at Universidad de los Andes. He holds a law degree from Pontificia Universidad Javeriana, a specialization in Educational Institutions Management from Universidad de los Andes, and a Master of Laws from Fordham University School of Law in the United States. He has held leadership positions in education, including Rector of Gimnasio Campestre and Vice President for Transformation at CESA. His experience includes educational leadership, institutional transformation, accreditation, and international education."
     },
     {
       name: "Johanna Mick Clausen",
