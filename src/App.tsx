@@ -732,7 +732,7 @@ const participants: Record<ParticipantCategory, Participant[]> = {
       role: "Interim President and Vice-Chancellor",
       institution: "York University",
       country: "Canada",
-      image: "/images/participants/lisa-philipps2.jpeg",
+      image: "/images/participants/lisa-philipps3.jpeg",
       bio: "Lisa Philipps is Interim President and Vice-Chancellor of York University, where she has spent nearly three decades, including seven years as Provost and Vice-President Academic. Her leadership focuses on academic quality, research and innovation, and community engagement. An expert in taxation law and fiscal policy, she has advised bodies including Ontario's Ministry of Finance and the National Association of Women and the Law. "
     },
     {
