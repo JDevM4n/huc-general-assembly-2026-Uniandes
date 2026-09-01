@@ -519,7 +519,7 @@ const days: Day[] = [
                 text:
                   "Hybrid session available for remote participants. Join the session here: Zoom Link.",
                 href:
-                  "https://uniandes-edu-co.zoom.us/j/89624317003",
+                  "https://uniandes-edu-co.zoom.us/j/84360124744",
               },
             ],
           },
