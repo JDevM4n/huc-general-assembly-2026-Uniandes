@@ -432,7 +432,7 @@ const days: Day[] = [
         title: "Workshop: Shaping the 2027 Efforts",
         type: "workshop",
         location:
-          "Council Room · School of Architecture & Design",
+          "Council Room · Rectors’ Building",
 
         description:
           "Strategic alignment session on the HUC pillars of Research and Education to consolidate insights from the previous workshop, reach consensus on the consortium's priorities and define milestones towards 2027.",
@@ -470,7 +470,7 @@ const days: Day[] = [
         title: "Academic Dialogue",
         type: "session",
         location:
-          "Council Room · School of Architecture & Design",
+          "Council Room · Rectors’ Building",
 
         description:
           "Best Practices Exchange Panel — “Leadership with Global Conscience: Shaping Tomorrow’s Leaders”.",
